@@ -1,0 +1,337 @@
+{
+	"info": {
+		"_postman_id": "3ec4a48c-a355-4bdc-bb2f-f54a5515beaa",
+		"name": "Mincom.gov.az 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23050188"
+	},
+	"item": [
+		{
+			"name": "Get E xidmetler",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Check Status Code Telekomunikasiya\",()=>{\r",
+							"    pm.expect(pm.response.code).to.eql(200)\r",
+							"})\r",
+							"pm.test(\"Check Status  Telekomunikasiya\",()=>{\r",
+							"    pm.expect(pm.response.status).to.eql(\"OK\")\r",
+							"})\r",
+							"pm.test(\"Check Status Time Telekomunikasiya\",()=>{\r",
+							"    pm.expect(pm.response.code).to.be.below(500)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Check response services count\",  ()=> {\r",
+							"    var jsonData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(jsonData).to.have.property('category');\r",
+							"\r",
+							"    pm.expect(jsonData.category.serviceCategories).to.be.a(\"array\");\r",
+							"\r",
+							"    pm.expect(jsonData.category.serviceCategories.length).to.equal(14)\r",
+							"});\r",
+							"\r",
+							"let response = pm.response.json();\r",
+							"console.log(response)\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/home/category/{{categoryID}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"home",
+						"category",
+						"{{categoryID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetRadio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Check Status Code Radio\",()=>{\r",
+							"    pm.expect(pm.response.code).to.eql(200)\r",
+							"})\r",
+							"pm.test(\"Check Status  Radio\",()=>{\r",
+							"    pm.expect(pm.response.status).to.eql(\"OK\")\r",
+							"})\r",
+							"pm.test(\"Check Status Time Radio\",()=>{\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500)\r",
+							"})\r",
+							"pm.test(\"Check response array\",  ()=> {\r",
+							"    var jsonData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(jsonData).to.have.property('items');\r",
+							"\r",
+							"    pm.expect(jsonData.items).to.be.an('array');\r",
+							"\r",
+							"    pm.expect(jsonData.items.length).to.equal(2);\r",
+							"});\r",
+							"\r",
+							"let res = pm.response.json();\r",
+							"console.log(res.items.length);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/home/documentTypeGroupsKeyValue",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"home",
+						"documentTypeGroupsKeyValue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Radio Mane home",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Check Status Code Radio\",()=>{\r",
+							"    pm.expect(pm.response.code).to.eql(200)\r",
+							"})\r",
+							"pm.test(\"Check Status  Radio\",()=>{\r",
+							"    pm.expect(pm.response.status).to.eql(\"OK\")\r",
+							"})\r",
+							"pm.test(\"Check Status Time Radio\",()=>{\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000)\r",
+							"})\r",
+							"pm.test(\"Check response array\",  ()=> {\r",
+							"    var jsonData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(jsonData).to.have.property('items');\r",
+							"\r",
+							"    pm.expect(jsonData.items).to.be.an('array');\r",
+							"\r",
+							"    pm.expect(jsonData.items.length).to.equal(2);\r",
+							"});\r",
+							"\r",
+							"let res = pm.response.json();\r",
+							"console.log(res.items.length);\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/home/serviceApplicantTypeKeyValue?filterId=1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"home",
+						"serviceApplicantTypeKeyValue"
+					],
+					"query": [
+						{
+							"key": "filterId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Home Application service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Check Status Code Radio\",()=>{\r",
+							"    pm.expect(pm.response.code).to.eql(200)\r",
+							"})\r",
+							"pm.test(\"Check Status  Radio\",()=>{\r",
+							"    pm.expect(pm.response.status).to.eql(\"OK\")\r",
+							"})\r",
+							"pm.test(\"Check Status Time Radio\",()=>{\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000)\r",
+							"})\r",
+							"pm.test(\"Check response array\",  ()=> {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.items).to.be.an('array');\r",
+							"});\r",
+							"\r",
+							"let res = pm.response.json();\r",
+							"console.log(res.items.length);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/home/documentTypesKeyValue/1?filterId=1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"home",
+						"documentTypesKeyValue",
+						"1"
+					],
+					"query": [
+						{
+							"key": "filterId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ApplicantPost",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Check Post Status Code Telekomunikasiya\",()=>{\r",
+							"    pm.expect(pm.response.code).to.eql(400)\r",
+							"})\r",
+							"pm.test(\"Check Post Status  Telekomunikasiya\",()=>{\r",
+							"    pm.expect(pm.response.status).to.eql(\"Bad Request\")\r",
+							"})\r",
+							"pm.test(\"Check Status Time Telekomunikasiya\",()=>{\r",
+							"    pm.expect(pm.response.code).to.be.below(500)\r",
+							"})\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"applicationOrganization\": \"null\",\r\n    \"documentNumber\":\"0575078\",\r\n    \"documentTypeGroupId\":1,\r\n    \"documentTypeId\":\"4\",\r\n    \"email\":\"safa.umakhanov@outlook.com\",\r\n    \"phone\": \"+994(51)-378-19-99\",\r\n    \"pin\": \"2H75U1X\",\r\n    \"serviceApplicantTypeId\":\"1\"\r\n\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/radio/applicant",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"radio",
+						"applicant"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseUrl",
+			"value": "https://portal-api.rinn.az"
+		}
+	]
+}
